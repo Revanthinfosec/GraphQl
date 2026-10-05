@@ -1,0 +1,6 @@
+# Starting point for YOUR GraphQL layer. Ignored until you add spring-boot-starter-graphql to pom.xml.
+# Your @Controller classes go in src/main/java/com/jetairlines/graphql (folder already created).
+
+type Query {
+  hello: String
+}
