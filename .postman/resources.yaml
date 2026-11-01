@@ -1,0 +1,15 @@
+# Use this workspace to collaborate
+workspace:
+  id: 53ab333f-3b37-4a81-8da9-05d2e73ad62d
+
+localResources:
+  specs:
+    - ../jetairlines-openapi.json
+
+# Each entry here maps a local resource to one or more corresponding objects in Postman Cloud
+
+cloudResources:
+  collections:
+    ../postman/collections/OpenAPI definition: 0c312739-62f3-426a-a9f9-9b049c9a5614
+    ../postman/collections/OpenAPI definition Copy: 965155d6-6b60-460d-8a4f-1f6f219fd946
+    ../postman/collections/JetAirlines Fetch Reservation API: 030b1e72-4c15-427a-b0a2-ed58ec69ff81

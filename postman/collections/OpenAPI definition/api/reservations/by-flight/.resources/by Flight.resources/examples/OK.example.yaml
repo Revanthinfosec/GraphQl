@@ -1,0 +1,158 @@
+$kind: http-example
+request:
+  url: "{{baseUrl}}/api/reservations/by-flight?flightNumber=string&departureDate=2001-12-22"
+  method: GET
+  headers:
+    Accept: "*/*"
+  queryParams:
+    flightNumber: string
+    departureDate: 2001-12-22
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: "*/*"
+  body:
+    type: text
+    content: |-
+      [
+        {
+          "id": 3964,
+          "recordLocator": "string",
+          "status": "CANCELLED",
+          "contactEmail": "string",
+          "contactPhone": "string",
+          "createdAt": "2015-06-03T14:29:28.579Z",
+          "cancelledAt": "1961-07-17T23:21:33.270Z",
+          "passengers": [
+            {
+              "id": 5013,
+              "firstName": "string",
+              "lastName": "string",
+              "passengerType": "ADULT",
+              "loyaltyNumber": "string",
+              "ticketNumber": "string"
+            },
+            {
+              "id": 3950,
+              "firstName": "string",
+              "lastName": "string",
+              "passengerType": "INFANT",
+              "loyaltyNumber": "string",
+              "ticketNumber": "string"
+            }
+          ],
+          "segments": [
+            {
+              "id": 8822,
+              "flightNumber": "string",
+              "origin": "string",
+              "destination": "string",
+              "departureTime": "1972-04-19T13:06:45.024Z",
+              "arrivalTime": "1965-08-09T18:17:25.276Z",
+              "durationMinutes": 3539,
+              "cabin": "ECONOMY",
+              "status": "CONFIRMED"
+            },
+            {
+              "id": 151,
+              "flightNumber": "string",
+              "origin": "string",
+              "destination": "string",
+              "departureTime": "1960-07-20T02:16:35.529Z",
+              "arrivalTime": "2016-04-22T23:16:11.037Z",
+              "durationMinutes": 8026,
+              "cabin": "ECONOMY",
+              "status": "CONFIRMED"
+            }
+          ],
+          "seats": [
+            {
+              "id": 9377,
+              "passengerId": 9392,
+              "passengerName": "string",
+              "segmentId": 2793,
+              "flightNumber": "string",
+              "seatNumber": "string"
+            },
+            {
+              "id": 6193,
+              "passengerId": 4053,
+              "passengerName": "string",
+              "segmentId": 9281,
+              "flightNumber": "string",
+              "seatNumber": "string"
+            }
+          ]
+        },
+        {
+          "id": 686,
+          "recordLocator": "string",
+          "status": "ACTIVE",
+          "contactEmail": "string",
+          "contactPhone": "string",
+          "createdAt": "1987-06-30T09:28:22.899Z",
+          "cancelledAt": "1977-03-16T14:51:46.594Z",
+          "passengers": [
+            {
+              "id": 891,
+              "firstName": "string",
+              "lastName": "string",
+              "passengerType": "CHILD",
+              "loyaltyNumber": "string",
+              "ticketNumber": "string"
+            },
+            {
+              "id": 8112,
+              "firstName": "string",
+              "lastName": "string",
+              "passengerType": "CHILD",
+              "loyaltyNumber": "string",
+              "ticketNumber": "string"
+            }
+          ],
+          "segments": [
+            {
+              "id": 5003,
+              "flightNumber": "string",
+              "origin": "string",
+              "destination": "string",
+              "departureTime": "2009-02-09T04:07:46.994Z",
+              "arrivalTime": "2008-08-16T15:42:54.484Z",
+              "durationMinutes": 4134,
+              "cabin": "FIRST",
+              "status": "CANCELLED"
+            },
+            {
+              "id": 2273,
+              "flightNumber": "string",
+              "origin": "string",
+              "destination": "string",
+              "departureTime": "1985-12-17T08:23:16.412Z",
+              "arrivalTime": "1999-02-04T12:14:36.778Z",
+              "durationMinutes": 4302,
+              "cabin": "ECONOMY",
+              "status": "CANCELLED"
+            }
+          ],
+          "seats": [
+            {
+              "id": 4205,
+              "passengerId": 3744,
+              "passengerName": "string",
+              "segmentId": 5068,
+              "flightNumber": "string",
+              "seatNumber": "string"
+            },
+            {
+              "id": 8208,
+              "passengerId": 2985,
+              "passengerName": "string",
+              "segmentId": 3763,
+              "flightNumber": "string",
+              "seatNumber": "string"
+            }
+          ]
+        }
+      ]
+order: 1000

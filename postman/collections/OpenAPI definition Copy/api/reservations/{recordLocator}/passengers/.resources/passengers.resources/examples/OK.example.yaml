@@ -1,0 +1,35 @@
+$kind: http-example
+request:
+  url: "{{baseUrl}}/api/reservations/:recordLocator/passengers"
+  method: GET
+  headers:
+    Accept: "*/*"
+  pathVariables:
+    recordLocator: string
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: "*/*"
+  body:
+    type: text
+    content: |-
+      [
+        {
+          "id": 7593,
+          "firstName": "string",
+          "lastName": "string",
+          "passengerType": "CHILD",
+          "loyaltyNumber": "string",
+          "ticketNumber": "string"
+        },
+        {
+          "id": 3522,
+          "firstName": "string",
+          "lastName": "string",
+          "passengerType": "ADULT",
+          "loyaltyNumber": "string",
+          "ticketNumber": "string"
+        }
+      ]
+order: 1000

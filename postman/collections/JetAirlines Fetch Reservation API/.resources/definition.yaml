@@ -1,0 +1,24 @@
+$kind: collection
+description: "All 15 endpoints of jetairlines-fetch-reservation-api (Spring Boot, port 8081). Seed data is in-memory and resets on restart. Switch recordLocator/lastName in the collection variables to try other seeded bookings: JTK7QP Martinez, JTM4XR Nair, JTZ8LC Chen, JTP2NV Nair, JTC9WD Kim (cancelled), JTR6PA Rossi."
+variables:
+  baseUrl: http://localhost:8081
+  recordLocator: JTK7QP
+  lastName: Martinez
+  loyaltyNumber: JM1234567
+  ticketNumber: "9990000000001"
+  email: ava.martinez@example.com
+  day1: ""
+  day2: ""
+  day3: ""
+  day5: ""
+  newRecordLocator: ""
+  newPassengerId: ""
+  newSegmentId: ""
+scripts:
+  - type: http:beforeRequest
+    code: |-
+      // Seed data uses dates relative to today; compute them so date params always match.
+      const pad = n => String(n).padStart(2, '0');
+      const day = k => { const d = new Date(); d.setDate(d.getDate() + k); return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`; };
+      [1,2,3,5].forEach(k => pm.collectionVariables.set('day' + k, day(k)));
+    language: text/javascript

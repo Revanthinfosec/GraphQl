@@ -1,0 +1,182 @@
+$kind: http-example
+request:
+  url: "{{baseUrl}}/api/reservations"
+  method: POST
+  headers:
+    Content-Type: application/json
+    Accept: "*/*"
+  body:
+    type: json
+    content: |-
+      {
+        "contactEmail": "g5xJ3p6myY@sQRGWDPCUNlZMzF.gt",
+        "passengers": [
+          {
+            "firstName": "string",
+            "lastName": "string",
+            "passengerType": "ADULT",
+            "loyaltyNumber": "JM8687559"
+          },
+          {
+            "firstName": "string",
+            "lastName": "string",
+            "passengerType": "INFANT",
+            "loyaltyNumber": "JM4937590"
+          },
+          {
+            "firstName": "str",
+            "lastName": "",
+            "passengerType": "INFANT",
+            "loyaltyNumber": "JM8367013"
+          },
+          {
+            "firstName": "string",
+            "lastName": "string",
+            "passengerType": "INFANT",
+            "loyaltyNumber": "JM7736496"
+          },
+          {
+            "firstName": "string",
+            "lastName": "",
+            "passengerType": "INFANT",
+            "loyaltyNumber": "JM5549581"
+          },
+          {
+            "firstName": "string",
+            "lastName": "st",
+            "passengerType": "CHILD",
+            "loyaltyNumber": "JM6918854"
+          },
+          {
+            "firstName": "strin",
+            "lastName": "string",
+            "passengerType": "INFANT",
+            "loyaltyNumber": "JM7716414"
+          },
+          {
+            "firstName": "string",
+            "lastName": "string",
+            "passengerType": "INFANT",
+            "loyaltyNumber": "JM5254934"
+          },
+          {
+            "firstName": "string",
+            "lastName": "string",
+            "passengerType": "ADULT",
+            "loyaltyNumber": "JM4037943"
+          }
+        ],
+        "segments": [
+          {
+            "arrivalTime": "1965-09-20T18:07:40.590Z",
+            "cabin": "PREMIUM_ECONOMY",
+            "departureTime": "1952-09-12T22:44:05.952Z",
+            "destination": "MIW",
+            "flightNumber": "JT836",
+            "origin": "FLM"
+          },
+          {
+            "arrivalTime": "2008-07-24T17:52:09.389Z",
+            "cabin": "ECONOMY",
+            "departureTime": "1973-01-06T23:28:14.115Z",
+            "destination": "WSH",
+            "flightNumber": "JT228",
+            "origin": "JEF"
+          },
+          {
+            "arrivalTime": "2010-10-04T05:52:55.719Z",
+            "cabin": "ECONOMY",
+            "departureTime": "1992-05-06T10:17:57.026Z",
+            "destination": "EGW",
+            "flightNumber": "JT96",
+            "origin": "LPW"
+          },
+          {
+            "arrivalTime": "1977-09-20T02:57:06.165Z",
+            "cabin": "PREMIUM_ECONOMY",
+            "departureTime": "2019-09-28T16:18:58.052Z",
+            "destination": "MKP",
+            "flightNumber": "JT772",
+            "origin": "SSN"
+          }
+        ],
+        "contactPhone": "+-493 718"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: "*/*"
+  body:
+    type: text
+    content: |-
+      {
+        "id": 1439,
+        "recordLocator": "string",
+        "status": "ACTIVE",
+        "contactEmail": "string",
+        "contactPhone": "string",
+        "createdAt": "1996-12-04T07:31:42.554Z",
+        "cancelledAt": "2008-12-03T12:57:08.925Z",
+        "passengers": [
+          {
+            "id": 5449,
+            "firstName": "string",
+            "lastName": "string",
+            "passengerType": "CHILD",
+            "loyaltyNumber": "string",
+            "ticketNumber": "string"
+          },
+          {
+            "id": 5575,
+            "firstName": "string",
+            "lastName": "string",
+            "passengerType": "CHILD",
+            "loyaltyNumber": "string",
+            "ticketNumber": "string"
+          }
+        ],
+        "segments": [
+          {
+            "id": 3798,
+            "flightNumber": "string",
+            "origin": "string",
+            "destination": "string",
+            "departureTime": "1990-04-16T02:13:08.759Z",
+            "arrivalTime": "1961-10-24T06:43:25.921Z",
+            "durationMinutes": 5683,
+            "cabin": "ECONOMY",
+            "status": "CANCELLED"
+          },
+          {
+            "id": 5732,
+            "flightNumber": "string",
+            "origin": "string",
+            "destination": "string",
+            "departureTime": "1982-10-18T03:37:19.302Z",
+            "arrivalTime": "1967-03-14T11:31:02.869Z",
+            "durationMinutes": 8521,
+            "cabin": "FIRST",
+            "status": "CANCELLED"
+          }
+        ],
+        "seats": [
+          {
+            "id": 5899,
+            "passengerId": 108,
+            "passengerName": "string",
+            "segmentId": 253,
+            "flightNumber": "string",
+            "seatNumber": "string"
+          },
+          {
+            "id": 6461,
+            "passengerId": 2865,
+            "passengerName": "string",
+            "segmentId": 6769,
+            "flightNumber": "string",
+            "seatNumber": "string"
+          }
+        ]
+      }
+order: 1000

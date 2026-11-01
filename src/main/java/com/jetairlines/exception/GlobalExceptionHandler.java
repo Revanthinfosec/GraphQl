@@ -38,7 +38,7 @@ public class GlobalExceptionHandler {
         return build(HttpStatus.BAD_REQUEST, "Validation failed", req, fields);
     }
 
-    /** Validation done in the service layer (@Validated) - the same rules GraphQL gets. */
+    /** Validation done in the service layer (@Validated). */
     @ExceptionHandler(ConstraintViolationException.class)
     public ResponseEntity<ApiError> serviceValidation(ConstraintViolationException ex, HttpServletRequest req) {
         Map<String, String> fields = new LinkedHashMap<>();

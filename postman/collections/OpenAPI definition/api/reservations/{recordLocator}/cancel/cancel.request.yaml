@@ -1,0 +1,10 @@
+$kind: http-request
+url: "{{baseUrl}}/api/reservations/:recordLocator/cancel"
+method: POST
+headers:
+  Accept: "*/*"
+pathVariables:
+  recordLocator: string
+settings: {}
+examples: ./.resources/cancel.resources/examples
+order: 1000

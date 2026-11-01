@@ -23,6 +23,9 @@ import java.util.List;
  *          Mia Chen (infant)     / 9990000000005
  *  JTP2NV  Priya Nair  JM7654321 / 9990000000006                  JT410 LHR-DFW +5d (no seat)
  *  JTC9WD  Noah Kim    JM5555555 / 9990000000007  ** CANCELLED ** JT101 DFW-JFK +1d (20C)
+ *  JTR6PA  Sofia Rossi           / 9990000000008                  JT7001 DFW-LAX +2d  operated by American Airlines
+ *                                                                 JT7002 LAX-NRT +2d  operated by Japan Airlines
+ *                                                                 JT7003 NRT-SIN +3d  operated by Singapore Airlines
  */
 @Configuration
 public class DataSeeder {
@@ -65,7 +68,15 @@ public class DataSeeder {
             FlightSegment r5a = r5.addSegment(seg("JT101", "DFW", "JFK", d1, "08:00", 275, CabinClass.ECONOMY));
             r5.cancel();
 
-            reservations.saveAll(List.of(r1, r2, r3, r4, r5));
+            // JTR6PA - codeshare trip: sold as JT flights, flown by 3 partner airlines
+            LocalDate d2 = LocalDate.now().plusDays(2);
+            Reservation r6 = new Reservation("JTR6PA", "sofia.rossi@example.com", "+39 06 5555 0123");
+            r6.addPassenger(new Passenger("Sofia", "Rossi", PassengerType.ADULT, null, "9990000000008"));
+            r6.addSegment(seg("JT7001", "DFW", "LAX", d2, "07:15", 210, CabinClass.ECONOMY, "AA", "American Airlines"));
+            r6.addSegment(seg("JT7002", "LAX", "NRT", d2, "12:30", 675, CabinClass.ECONOMY, "JL", "Japan Airlines"));
+            r6.addSegment(seg("JT7003", "NRT", "SIN", d2.plusDays(1), "18:45", 450, CabinClass.ECONOMY, "SQ", "Singapore Airlines"));
+
+            reservations.saveAll(List.of(r1, r2, r3, r4, r5, r6));
 
             // Seats are saved after the reservations so passengers/segments already have ids
             seats.saveAll(List.of(
@@ -84,5 +95,11 @@ public class DataSeeder {
                                      int minutes, CabinClass cabin) {
         LocalDateTime dep = LocalDateTime.of(day, LocalTime.parse(time));
         return new FlightSegment(flight, from, to, dep, dep.plusMinutes(minutes), cabin);
+    }
+
+    private static FlightSegment seg(String flight, String from, String to, LocalDate day, String time,
+                                     int minutes, CabinClass cabin, String carrier, String carrierName) {
+        LocalDateTime dep = LocalDateTime.of(day, LocalTime.parse(time));
+        return new FlightSegment(flight, from, to, dep, dep.plusMinutes(minutes), cabin, carrier, carrierName);
     }
 }

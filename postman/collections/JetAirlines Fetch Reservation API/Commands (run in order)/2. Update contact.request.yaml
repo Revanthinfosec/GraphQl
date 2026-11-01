@@ -1,0 +1,17 @@
+$kind: http-request
+url: "{{baseUrl}}/api/reservations/{{newRecordLocator}}/contact"
+method: PUT
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "contactEmail": "updated.user@example.com",
+      "contactPhone": "+1 214 555 0100"
+    }
+scripts:
+  - type: afterResponse
+    code: pm.test('Status is 2xx', () => pm.expect(pm.response.code).to.be.within(200, 299));
+    language: text/javascript
+order: 2000

@@ -1,0 +1,106 @@
+$kind: http-request
+url: "{{baseUrl}}/api/reservations"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: "*/*"
+body:
+  type: json
+  content: |-
+    {
+      "contactEmail": "g5xJ3p6myY@sQRGWDPCUNlZMzF.gt",
+      "passengers": [
+        {
+          "firstName": "string",
+          "lastName": "string",
+          "passengerType": "ADULT",
+          "loyaltyNumber": "JM8687559"
+        },
+        {
+          "firstName": "string",
+          "lastName": "string",
+          "passengerType": "INFANT",
+          "loyaltyNumber": "JM4937590"
+        },
+        {
+          "firstName": "str",
+          "lastName": "",
+          "passengerType": "INFANT",
+          "loyaltyNumber": "JM8367013"
+        },
+        {
+          "firstName": "string",
+          "lastName": "string",
+          "passengerType": "INFANT",
+          "loyaltyNumber": "JM7736496"
+        },
+        {
+          "firstName": "string",
+          "lastName": "",
+          "passengerType": "INFANT",
+          "loyaltyNumber": "JM5549581"
+        },
+        {
+          "firstName": "string",
+          "lastName": "st",
+          "passengerType": "CHILD",
+          "loyaltyNumber": "JM6918854"
+        },
+        {
+          "firstName": "strin",
+          "lastName": "string",
+          "passengerType": "INFANT",
+          "loyaltyNumber": "JM7716414"
+        },
+        {
+          "firstName": "string",
+          "lastName": "string",
+          "passengerType": "INFANT",
+          "loyaltyNumber": "JM5254934"
+        },
+        {
+          "firstName": "string",
+          "lastName": "string",
+          "passengerType": "ADULT",
+          "loyaltyNumber": "JM4037943"
+        }
+      ],
+      "segments": [
+        {
+          "arrivalTime": "1965-09-20T18:07:40.590Z",
+          "cabin": "PREMIUM_ECONOMY",
+          "departureTime": "1952-09-12T22:44:05.952Z",
+          "destination": "MIW",
+          "flightNumber": "JT836",
+          "origin": "FLM"
+        },
+        {
+          "arrivalTime": "2008-07-24T17:52:09.389Z",
+          "cabin": "ECONOMY",
+          "departureTime": "1973-01-06T23:28:14.115Z",
+          "destination": "WSH",
+          "flightNumber": "JT228",
+          "origin": "JEF"
+        },
+        {
+          "arrivalTime": "2010-10-04T05:52:55.719Z",
+          "cabin": "ECONOMY",
+          "departureTime": "1992-05-06T10:17:57.026Z",
+          "destination": "EGW",
+          "flightNumber": "JT96",
+          "origin": "LPW"
+        },
+        {
+          "arrivalTime": "1977-09-20T02:57:06.165Z",
+          "cabin": "PREMIUM_ECONOMY",
+          "departureTime": "2019-09-28T16:18:58.052Z",
+          "destination": "MKP",
+          "flightNumber": "JT772",
+          "origin": "SSN"
+        }
+      ],
+      "contactPhone": "+-493 718"
+    }
+settings: {}
+examples: ./.resources/create.resources/examples
+order: 8000

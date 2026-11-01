@@ -1,0 +1,41 @@
+$kind: http-example
+request:
+  url: "{{baseUrl}}/api/reservations/:recordLocator/segments"
+  method: GET
+  headers:
+    Accept: "*/*"
+  pathVariables:
+    recordLocator: string
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: "*/*"
+  body:
+    type: text
+    content: |-
+      [
+        {
+          "id": 992,
+          "flightNumber": "string",
+          "origin": "string",
+          "destination": "string",
+          "departureTime": "1948-09-21T12:48:59.039Z",
+          "arrivalTime": "1950-09-25T14:32:31.681Z",
+          "durationMinutes": 7030,
+          "cabin": "BUSINESS",
+          "status": "CONFIRMED"
+        },
+        {
+          "id": 6673,
+          "flightNumber": "string",
+          "origin": "string",
+          "destination": "string",
+          "departureTime": "1995-06-10T08:27:53.719Z",
+          "arrivalTime": "2007-04-01T05:59:47.483Z",
+          "durationMinutes": 8511,
+          "cabin": "FIRST",
+          "status": "CONFIRMED"
+        }
+      ]
+order: 1000

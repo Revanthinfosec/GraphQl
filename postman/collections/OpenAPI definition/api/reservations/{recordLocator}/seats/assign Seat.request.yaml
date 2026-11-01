@@ -1,0 +1,19 @@
+$kind: http-request
+url: "{{baseUrl}}/api/reservations/:recordLocator/seats"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: "*/*"
+pathVariables:
+  recordLocator: string
+body:
+  type: json
+  content: |-
+    {
+      "passengerId": 6263,
+      "seatNumber": "96h",
+      "segmentId": 3598
+    }
+settings: {}
+examples: ./.resources/assign Seat.resources/examples
+order: 2000

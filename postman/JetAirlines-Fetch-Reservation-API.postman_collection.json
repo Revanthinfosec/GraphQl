@@ -1,0 +1,666 @@
+{
+  "info": {
+    "name": "JetAirlines Fetch Reservation API",
+    "description": "All 15 endpoints of jetairlines-fetch-reservation-api (Spring Boot, port 8081). Seed data is in-memory and resets on restart. Switch recordLocator/lastName in the collection variables to try other seeded bookings: JTK7QP Martinez, JTM4XR Nair, JTZ8LC Chen, JTP2NV Nair, JTC9WD Kim (cancelled), JTR6PA Rossi.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Lookups",
+      "item": [
+        {
+          "name": "Get by record locator",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/reservations/{{recordLocator}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "reservations",
+                "{{recordLocator}}"
+              ]
+            },
+            "description": "GET /api/reservations/{recordLocator}"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status is 2xx', () => pm.expect(pm.response.code).to.be.within(200, 299));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Search by record locator + last name",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/reservations/search?recordLocator={{recordLocator}}&lastName={{lastName}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "reservations",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "recordLocator",
+                  "value": "{{recordLocator}}"
+                },
+                {
+                  "key": "lastName",
+                  "value": "{{lastName}}"
+                }
+              ]
+            },
+            "description": "Manage-booking lookup (Find your trip)."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status is 2xx', () => pm.expect(pm.response.code).to.be.within(200, 299));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "By loyalty number",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/reservations/by-loyalty/{{loyaltyNumber}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "reservations",
+                "by-loyalty",
+                "{{loyaltyNumber}}"
+              ]
+            },
+            "description": ""
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status is 2xx', () => pm.expect(pm.response.code).to.be.within(200, 299));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "By seat",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/reservations/by-seat?flightNumber=JT101&departureDate={{day1}}&seatNumber=14A",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "reservations",
+                "by-seat"
+              ],
+              "query": [
+                {
+                  "key": "flightNumber",
+                  "value": "JT101"
+                },
+                {
+                  "key": "departureDate",
+                  "value": "{{day1}}"
+                },
+                {
+                  "key": "seatNumber",
+                  "value": "14A"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status is 2xx', () => pm.expect(pm.response.code).to.be.within(200, 299));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "By ticket number",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/reservations/by-ticket/{{ticketNumber}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "reservations",
+                "by-ticket",
+                "{{ticketNumber}}"
+              ]
+            },
+            "description": ""
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status is 2xx', () => pm.expect(pm.response.code).to.be.within(200, 299));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "By email",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/reservations/by-email?email={{email}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "reservations",
+                "by-email"
+              ],
+              "query": [
+                {
+                  "key": "email",
+                  "value": "{{email}}"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status is 2xx', () => pm.expect(pm.response.code).to.be.within(200, 299));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "By flight",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/reservations/by-flight?flightNumber=JT101&departureDate={{day1}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "reservations",
+                "by-flight"
+              ],
+              "query": [
+                {
+                  "key": "flightNumber",
+                  "value": "JT101"
+                },
+                {
+                  "key": "departureDate",
+                  "value": "{{day1}}"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status is 2xx', () => pm.expect(pm.response.code).to.be.within(200, 299));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Not found (negative)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/reservations/ZZZZZZ",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "reservations",
+                "ZZZZZZ"
+              ]
+            },
+            "description": "Should return 404 via GlobalExceptionHandler."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status is 404', () => pm.response.to.have.status(404));"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Reservation details",
+      "item": [
+        {
+          "name": "Passengers",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/reservations/{{recordLocator}}/passengers",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "reservations",
+                "{{recordLocator}}",
+                "passengers"
+              ]
+            },
+            "description": ""
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status is 2xx', () => pm.expect(pm.response.code).to.be.within(200, 299));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Segments",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/reservations/{{recordLocator}}/segments",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "reservations",
+                "{{recordLocator}}",
+                "segments"
+              ]
+            },
+            "description": ""
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status is 2xx', () => pm.expect(pm.response.code).to.be.within(200, 299));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Seats",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/reservations/{{recordLocator}}/seats",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "reservations",
+                "{{recordLocator}}",
+                "seats"
+              ]
+            },
+            "description": ""
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status is 2xx', () => pm.expect(pm.response.code).to.be.within(200, 299));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Itinerary summary",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/reservations/{{recordLocator}}/summary",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "reservations",
+                "{{recordLocator}}",
+                "summary"
+              ]
+            },
+            "description": "Used by the Find your trip UI. JET-101 reproduces here with JTK7QP."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status is 2xx', () => pm.expect(pm.response.code).to.be.within(200, 299));"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Commands (run in order)",
+      "item": [
+        {
+          "name": "1. Create reservation",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/reservations",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "reservations"
+              ]
+            },
+            "description": "Saves newRecordLocator, newPassengerId, newSegmentId for the next requests. Run these in order.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"contactEmail\": \"test.user@example.com\",\n  \"contactPhone\": \"+1 214 555 0199\",\n  \"passengers\": [\n    {\n      \"firstName\": \"Test\",\n      \"lastName\": \"User\",\n      \"passengerType\": \"ADULT\",\n      \"loyaltyNumber\": \"JM1112223\"\n    }\n  ],\n  \"segments\": [\n    {\n      \"flightNumber\": \"JT101\",\n      \"origin\": \"DFW\",\n      \"destination\": \"JFK\",\n      \"departureTime\": \"{{day1}}T08:00:00\",\n      \"arrivalTime\": \"{{day1}}T12:35:00\",\n      \"cabin\": \"ECONOMY\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status is 201', () => pm.response.to.have.status(201));",
+                  "const r = pm.response.json();",
+                  "pm.collectionVariables.set('newRecordLocator', r.recordLocator);",
+                  "if (r.passengers && r.passengers.length) pm.collectionVariables.set('newPassengerId', r.passengers[0].id);",
+                  "if (r.segments && r.segments.length) pm.collectionVariables.set('newSegmentId', r.segments[0].id);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "2. Update contact",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/reservations/{{newRecordLocator}}/contact",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "reservations",
+                "{{newRecordLocator}}",
+                "contact"
+              ]
+            },
+            "description": "",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"contactEmail\": \"updated.user@example.com\",\n  \"contactPhone\": \"+1 214 555 0100\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status is 2xx', () => pm.expect(pm.response.code).to.be.within(200, 299));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "3. Assign seat",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/reservations/{{newRecordLocator}}/seats",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "reservations",
+                "{{newRecordLocator}}",
+                "seats"
+              ]
+            },
+            "description": "",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"passengerId\": {{newPassengerId}},\n  \"segmentId\": {{newSegmentId}},\n  \"seatNumber\": \"21D\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status is 2xx', () => pm.expect(pm.response.code).to.be.within(200, 299));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "4. Cancel reservation",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/reservations/{{newRecordLocator}}/cancel",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "reservations",
+                "{{newRecordLocator}}",
+                "cancel"
+              ]
+            },
+            "description": ""
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status is 2xx', () => pm.expect(pm.response.code).to.be.within(200, 299));"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "// Seed data uses dates relative to today; compute them so date params always match.",
+          "const pad = n => String(n).padStart(2, '0');",
+          "const day = k => { const d = new Date(); d.setDate(d.getDate() + k); return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`; };",
+          "[1,2,3,5].forEach(k => pm.collectionVariables.set('day' + k, day(k)));"
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8081"
+    },
+    {
+      "key": "recordLocator",
+      "value": "JTK7QP"
+    },
+    {
+      "key": "lastName",
+      "value": "Martinez"
+    },
+    {
+      "key": "loyaltyNumber",
+      "value": "JM1234567"
+    },
+    {
+      "key": "ticketNumber",
+      "value": "9990000000001"
+    },
+    {
+      "key": "email",
+      "value": "ava.martinez@example.com"
+    },
+    {
+      "key": "day1",
+      "value": ""
+    },
+    {
+      "key": "day2",
+      "value": ""
+    },
+    {
+      "key": "day3",
+      "value": ""
+    },
+    {
+      "key": "day5",
+      "value": ""
+    },
+    {
+      "key": "newRecordLocator",
+      "value": ""
+    },
+    {
+      "key": "newPassengerId",
+      "value": ""
+    },
+    {
+      "key": "newSegmentId",
+      "value": ""
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+$kind: http-request
+url: "{{baseUrl}}/api/reservations/by-seat?flightNumber=string&departureDate=1987-08-14&seatNumber=string"
+method: GET
+headers:
+  Accept: "*/*"
+queryParams:
+  flightNumber: string
+  departureDate: 1987-08-14
+  seatNumber: string
+settings: {}
+examples: ./.resources/by Seat.resources/examples
+order: 1000

@@ -1,0 +1,86 @@
+$kind: http-example
+request:
+  url: "{{baseUrl}}/api/reservations/by-ticket/:ticketNumber"
+  method: GET
+  headers:
+    Accept: "*/*"
+  pathVariables:
+    ticketNumber: string
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: "*/*"
+  body:
+    type: text
+    content: |-
+      {
+        "id": 9243,
+        "recordLocator": "string",
+        "status": "CANCELLED",
+        "contactEmail": "string",
+        "contactPhone": "string",
+        "createdAt": "1972-03-17T06:42:17.733Z",
+        "cancelledAt": "2000-01-17T14:14:26.949Z",
+        "passengers": [
+          {
+            "id": 494,
+            "firstName": "string",
+            "lastName": "string",
+            "passengerType": "ADULT",
+            "loyaltyNumber": "string",
+            "ticketNumber": "string"
+          },
+          {
+            "id": 4833,
+            "firstName": "string",
+            "lastName": "string",
+            "passengerType": "CHILD",
+            "loyaltyNumber": "string",
+            "ticketNumber": "string"
+          }
+        ],
+        "segments": [
+          {
+            "id": 9655,
+            "flightNumber": "string",
+            "origin": "string",
+            "destination": "string",
+            "departureTime": "2008-10-01T23:22:52.351Z",
+            "arrivalTime": "1963-06-29T08:48:05.734Z",
+            "durationMinutes": 9091,
+            "cabin": "ECONOMY",
+            "status": "CANCELLED"
+          },
+          {
+            "id": 9403,
+            "flightNumber": "string",
+            "origin": "string",
+            "destination": "string",
+            "departureTime": "2012-11-11T17:09:38.370Z",
+            "arrivalTime": "2001-09-14T02:27:00.773Z",
+            "durationMinutes": 6743,
+            "cabin": "PREMIUM_ECONOMY",
+            "status": "CANCELLED"
+          }
+        ],
+        "seats": [
+          {
+            "id": 7937,
+            "passengerId": 8801,
+            "passengerName": "string",
+            "segmentId": 9159,
+            "flightNumber": "string",
+            "seatNumber": "string"
+          },
+          {
+            "id": 484,
+            "passengerId": 7490,
+            "passengerName": "string",
+            "segmentId": 8951,
+            "flightNumber": "string",
+            "seatNumber": "string"
+          }
+        ]
+      }
+order: 1000

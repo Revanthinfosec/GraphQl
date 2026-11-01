@@ -1,0 +1,11 @@
+$kind: http-request
+url: "{{baseUrl}}/api/reservations/by-flight?flightNumber=string&departureDate=2001-12-22"
+method: GET
+headers:
+  Accept: "*/*"
+queryParams:
+  flightNumber: string
+  departureDate: 2001-12-22
+settings: {}
+examples: ./.resources/by Flight.resources/examples
+order: 1000

@@ -1,0 +1,11 @@
+$kind: http-request
+url: "{{baseUrl}}/api/reservations/search?recordLocator=string&lastName=string"
+method: GET
+headers:
+  Accept: "*/*"
+queryParams:
+  recordLocator: string
+  lastName: string
+settings: {}
+examples: ./.resources/by Record Locator And Last Name.resources/examples
+order: 1000

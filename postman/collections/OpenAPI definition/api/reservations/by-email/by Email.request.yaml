@@ -1,0 +1,10 @@
+$kind: http-request
+url: "{{baseUrl}}/api/reservations/by-email?email=string"
+method: GET
+headers:
+  Accept: "*/*"
+queryParams:
+  email: string
+settings: {}
+examples: ./.resources/by Email.resources/examples
+order: 1000

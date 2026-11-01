@@ -1,0 +1,10 @@
+$kind: http-request
+url: "{{baseUrl}}/api/reservations/by-ticket/:ticketNumber"
+method: GET
+headers:
+  Accept: "*/*"
+pathVariables:
+  ticketNumber: string
+settings: {}
+examples: ./.resources/by Ticket Number.resources/examples
+order: 1000

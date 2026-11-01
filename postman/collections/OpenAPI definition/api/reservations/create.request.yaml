@@ -1,0 +1,106 @@
+$kind: http-request
+url: "{{baseUrl}}/api/reservations"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: "*/*"
+body:
+  type: json
+  content: |-
+    {
+      "contactEmail": "4d8BTdzxHjO@tpVkeIWLAvIqXBrLnh.khyb",
+      "passengers": [
+        {
+          "firstName": "string",
+          "lastName": "string",
+          "passengerType": "CHILD",
+          "loyaltyNumber": "JM9054711"
+        },
+        {
+          "firstName": "string",
+          "lastName": "string",
+          "passengerType": "INFANT",
+          "loyaltyNumber": "JM1254950"
+        },
+        {
+          "firstName": "str",
+          "lastName": "string",
+          "passengerType": "ADULT",
+          "loyaltyNumber": "JM8591005"
+        },
+        {
+          "firstName": "string",
+          "lastName": "s",
+          "passengerType": "CHILD",
+          "loyaltyNumber": "JM4796993"
+        },
+        {
+          "firstName": "str",
+          "lastName": "string",
+          "passengerType": "CHILD",
+          "loyaltyNumber": "JM6948182"
+        },
+        {
+          "firstName": "string",
+          "lastName": "string",
+          "passengerType": "INFANT",
+          "loyaltyNumber": "JM2019180"
+        },
+        {
+          "firstName": "string",
+          "lastName": "string",
+          "passengerType": "INFANT",
+          "loyaltyNumber": "JM6276294"
+        },
+        {
+          "firstName": "string",
+          "lastName": "string",
+          "passengerType": "CHILD",
+          "loyaltyNumber": "JM5519190"
+        },
+        {
+          "firstName": "string",
+          "lastName": "string",
+          "passengerType": "CHILD",
+          "loyaltyNumber": "JM9137552"
+        }
+      ],
+      "segments": [
+        {
+          "arrivalTime": "1954-10-01T23:40:57.333Z",
+          "cabin": "FIRST",
+          "departureTime": "1967-10-24T00:06:30.133Z",
+          "destination": "AUA",
+          "flightNumber": "JT05",
+          "origin": "WXV"
+        },
+        {
+          "arrivalTime": "1989-05-25T15:52:59.821Z",
+          "cabin": "FIRST",
+          "departureTime": "1957-05-16T19:22:01.916Z",
+          "destination": "OPL",
+          "flightNumber": "JT8",
+          "origin": "UAD"
+        },
+        {
+          "arrivalTime": "2011-06-13T18:21:34.323Z",
+          "cabin": "PREMIUM_ECONOMY",
+          "departureTime": "1969-12-26T12:10:50.906Z",
+          "destination": "JUY",
+          "flightNumber": "JT8",
+          "origin": "XBG"
+        },
+        {
+          "arrivalTime": "2021-05-26T17:14:21.725Z",
+          "cabin": "FIRST",
+          "departureTime": "1981-04-30T21:48:07.373Z",
+          "destination": "POG",
+          "flightNumber": "JT0906",
+          "origin": "ZOC"
+        }
+      ],
+      "contactPhone": "18228694-8(27"
+    }
+settings: {}
+examples: ./.resources/create.resources/examples
+order: 8000

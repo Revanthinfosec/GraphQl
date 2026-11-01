@@ -1,0 +1,10 @@
+$kind: http-request
+url: "{{baseUrl}}/api/reservations/:recordLocator/seats"
+method: GET
+headers:
+  Accept: "*/*"
+pathVariables:
+  recordLocator: string
+settings: {}
+examples: ./.resources/seats.resources/examples
+order: 1000

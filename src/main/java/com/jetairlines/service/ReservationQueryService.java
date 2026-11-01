@@ -15,8 +15,7 @@ import java.util.List;
 
 /**
  * All "fetch reservation" reads (endpoints 1-11).
- * Returns DTOs built inside the transaction, so any entry point (REST today, GraphQL later)
- * can call these methods directly.
+ * Returns DTOs built inside the transaction, so callers never hit lazy-loading errors.
  */
 @Service
 @Transactional(readOnly = true)
@@ -40,7 +39,7 @@ public class ReservationQueryService {
         String pnr = normalize(recordLocator);
         String name = lastName.trim();
         return reservations.findByRecordLocator(pnr)
-                .filter(r -> r.getPassengers().stream().anyMatch(p -> p.getLastName().equalsIgnoreCase(name)))
+                .filter(r -> r.getPassengers().stream().anyMatch(p -> p.getLastName().equals(name)))
                 .map(ReservationResponse::from)
                 // same message whether the PNR or the name is wrong - don't leak which PNRs exist
                 .orElseThrow(() -> new ResourceNotFoundException(

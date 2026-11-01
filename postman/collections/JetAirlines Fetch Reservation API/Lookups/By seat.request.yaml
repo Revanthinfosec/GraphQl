@@ -1,0 +1,12 @@
+$kind: http-request
+url: "{{baseUrl}}/api/reservations/by-seat?flightNumber=JT101&departureDate={{day1}}&seatNumber=14A"
+method: GET
+queryParams:
+  flightNumber: JT101
+  departureDate: "{{day1}}"
+  seatNumber: 14A
+scripts:
+  - type: afterResponse
+    code: pm.test('Status is 2xx', () => pm.expect(pm.response.code).to.be.within(200, 299));
+    language: text/javascript
+order: 4000

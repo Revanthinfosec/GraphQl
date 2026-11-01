@@ -19,8 +19,7 @@ import java.util.Set;
 
 /**
  * All reservation writes (endpoints 12-15).
- * @Validated: request validation also runs HERE, so a future GraphQL mutation gets
- * the same rules as REST without repeating them.
+ * @Validated: request validation also runs in the service layer, not only in the controllers.
  */
 @Service
 @Transactional

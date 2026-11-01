@@ -1,0 +1,10 @@
+$kind: http-request
+url: "{{baseUrl}}/api/reservations/by-loyalty/:loyaltyNumber"
+method: GET
+headers:
+  Accept: "*/*"
+pathVariables:
+  loyaltyNumber: string
+settings: {}
+examples: ./.resources/by Loyalty Number.resources/examples
+order: 1000

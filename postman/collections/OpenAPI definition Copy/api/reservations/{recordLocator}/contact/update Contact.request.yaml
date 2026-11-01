@@ -1,0 +1,18 @@
+$kind: http-request
+url: "{{baseUrl}}/api/reservations/:recordLocator/contact"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: "*/*"
+pathVariables:
+  recordLocator: string
+body:
+  type: json
+  content: |-
+    {
+      "contactEmail": "9Jo8uxazXv7HwE@QcGdUcTztCPIeNFTnt.rq",
+      "contactPhone": "0)59(44243497472019"
+    }
+settings: {}
+examples: ./.resources/update Contact.resources/examples
+order: 1000

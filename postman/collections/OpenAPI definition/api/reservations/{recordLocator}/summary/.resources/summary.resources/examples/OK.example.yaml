@@ -1,0 +1,32 @@
+$kind: http-example
+request:
+  url: "{{baseUrl}}/api/reservations/:recordLocator/summary"
+  method: GET
+  headers:
+    Accept: "*/*"
+  pathVariables:
+    recordLocator: string
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: "*/*"
+  body:
+    type: text
+    content: |-
+      {
+        "recordLocator": "string",
+        "status": "ACTIVE",
+        "passengerCount": 8061,
+        "segmentCount": 2949,
+        "origin": "string",
+        "finalDestination": "string",
+        "route": [
+          "string",
+          "string"
+        ],
+        "firstDeparture": "2021-07-01T08:18:13.101Z",
+        "lastArrival": "1983-07-02T01:10:49.165Z",
+        "totalTripMinutes": 2230
+      }
+order: 1000

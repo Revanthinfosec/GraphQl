@@ -1,0 +1,35 @@
+$kind: http-example
+request:
+  url: "{{baseUrl}}/api/reservations/:recordLocator/seats"
+  method: GET
+  headers:
+    Accept: "*/*"
+  pathVariables:
+    recordLocator: string
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: "*/*"
+  body:
+    type: text
+    content: |-
+      [
+        {
+          "id": 7172,
+          "passengerId": 4982,
+          "passengerName": "string",
+          "segmentId": 2544,
+          "flightNumber": "string",
+          "seatNumber": "string"
+        },
+        {
+          "id": 2003,
+          "passengerId": 5552,
+          "passengerName": "string",
+          "segmentId": 1338,
+          "flightNumber": "string",
+          "seatNumber": "string"
+        }
+      ]
+order: 1000

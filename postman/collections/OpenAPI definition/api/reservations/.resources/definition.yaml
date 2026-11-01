@@ -1,0 +1,7 @@
+$kind: collection
+name: reservations
+auth:
+  type: oauth2
+  credentials:
+    addTokenTo: header
+order: 1000

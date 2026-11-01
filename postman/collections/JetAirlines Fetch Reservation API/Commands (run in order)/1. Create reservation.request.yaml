@@ -1,0 +1,41 @@
+$kind: http-request
+description: Saves newRecordLocator, newPassengerId, newSegmentId for the next requests. Run these in order.
+url: "{{baseUrl}}/api/reservations"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "contactEmail": "test.user@example.com",
+      "contactPhone": "+1 214 555 0199",
+      "passengers": [
+        {
+          "firstName": "Test",
+          "lastName": "User",
+          "passengerType": "ADULT",
+          "loyaltyNumber": "JM1112223"
+        }
+      ],
+      "segments": [
+        {
+          "flightNumber": "JT101",
+          "origin": "DFW",
+          "destination": "JFK",
+          "departureTime": "{{day1}}T08:00:00",
+          "arrivalTime": "{{day1}}T12:35:00",
+          "cabin": "ECONOMY"
+        }
+      ]
+    }
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test('Status is 201', () => pm.response.to.have.status(201));
+      const r = pm.response.json();
+      pm.collectionVariables.set('newRecordLocator', r.recordLocator);
+      if (r.passengers && r.passengers.length) pm.collectionVariables.set('newPassengerId', r.passengers[0].id);
+      if (r.segments && r.segments.length) pm.collectionVariables.set('newSegmentId', r.segments[0].id);
+    language: text/javascript
+order: 1000

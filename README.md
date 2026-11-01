@@ -1,8 +1,7 @@
 # JetAirlines FetchReservation API (practice project)
 
 Spring Boot 4 REST API for a **fictional** airline's reservation lookup ("fetch reservation") service.
-15 endpoints, layered `controller → service → repository` so you can add a GraphQL layer on top
-of the same services without touching the business logic.
+15 endpoints, layered `controller → service → repository`.
 
 ## Run
 Requires JDK 17+ and Maven 3.9+.
@@ -74,19 +73,5 @@ src/main/java/com/jetairlines
 ├── controller/   ReservationQueryController, ReservationCommandController
 ├── dto/          Request/response records (returned by the services)
 ├── exception/    Error types + REST error handler
-├── config/       Sample-data seeder
-└── graphql/      (empty) your GraphQL controllers go here
+└── config/       Sample-data seeder
 ```
-
-## Adding your GraphQL layer
-How the code is set up for it:
-- **Services return DTOs**, built inside the transaction. A GraphQL controller can return what the service returns, with no lazy-loading errors.
-- **Validation also runs in `ReservationCommandService`** (`@Validated` + `@Valid`), so mutations get the same rules as REST for free. Map `ConstraintViolationException` in your GraphQL error handler.
-- **Queries vs mutations** are already split: `ReservationQueryService` covers endpoints 1-11 (`@QueryMapping`) and `ReservationCommandService` covers 12-15 (`@MutationMapping`).
-- **Endpoints 8-11 don't need their own queries.** In GraphQL they're just fields on `Reservation` (`passengers`, `segments`, `seats`), and `summary` can be a `@SchemaMapping`.
-
-To start:
-1. Add `spring-boot-starter-graphql` (and `spring-boot-starter-graphql-test` for tests) to `pom.xml`.
-2. Add `spring.graphql.graphiql.enabled=true` to `application.properties`.
-3. Grow `src/main/resources/graphql/schema.graphqls`. It has a `hello` placeholder.
-4. Map `ResourceNotFoundException` / `BusinessRuleException` / `IllegalArgumentException` in a `DataFetcherExceptionResolverAdapter`.

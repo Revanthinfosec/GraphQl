@@ -39,6 +39,13 @@ public class FlightSegment {
     @Column(nullable = false)
     private SegmentStatus status = SegmentStatus.CONFIRMED;
 
+    /** Airline that actually flies the plane, e.g. "JT" (JetAirlines) or a codeshare partner like "AA". */
+    @Column(nullable = false, length = 2)
+    private String operatingCarrier = "JT";
+
+    @Column(nullable = false, length = 40)
+    private String operatingCarrierName = "JetAirlines";
+
     protected FlightSegment() {}
 
     public FlightSegment(String flightNumber, String origin, String destination,
@@ -49,6 +56,15 @@ public class FlightSegment {
         this.departureTime = departureTime;
         this.arrivalTime = arrivalTime;
         this.cabin = cabin;
+    }
+
+    /** Codeshare leg: sold under a JT flight number but operated by a partner airline. */
+    public FlightSegment(String flightNumber, String origin, String destination,
+                         LocalDateTime departureTime, LocalDateTime arrivalTime, CabinClass cabin,
+                         String operatingCarrier, String operatingCarrierName) {
+        this(flightNumber, origin, destination, departureTime, arrivalTime, cabin);
+        this.operatingCarrier = operatingCarrier;
+        this.operatingCarrierName = operatingCarrierName;
     }
 
     void setReservation(Reservation reservation) { this.reservation = reservation; }
@@ -63,4 +79,6 @@ public class FlightSegment {
     public LocalDateTime getArrivalTime() { return arrivalTime; }
     public CabinClass getCabin() { return cabin; }
     public SegmentStatus getStatus() { return status; }
+    public String getOperatingCarrier() { return operatingCarrier; }
+    public String getOperatingCarrierName() { return operatingCarrierName; }
 }
