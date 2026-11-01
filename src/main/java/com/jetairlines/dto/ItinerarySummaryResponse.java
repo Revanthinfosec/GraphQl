@@ -30,6 +30,8 @@ public record ItinerarySummaryResponse(
         return new ItinerarySummaryResponse(r.recordLocator(), r.status(), r.passengers().size(), legs.size(),
                 first.origin(), last.destination(), List.copyOf(route),
                 first.departureTime(), last.arrivalTime(),
-                Duration.between(first.departureTime(), last.departureTime()).toMinutes());
+                //new code
+                Duration.between(first.departureTime(), last.arrivalTime()).toMinutes());
+                //older code bug Duration.between(first.departureTime(), last.departureTime()).toMinutes());
     }
 }
